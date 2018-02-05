@@ -55,6 +55,9 @@ export class CampgroundsComponent implements OnInit {
     }
 
     onDelete(bit: any) {
+    if(isNullOrUndefined(this.serverService.token)){
+      this.router.navigate(['/login']);
+    }
       this.setCampGround(bit);
       this.serverService.deleteCampground(this.campground.id).subscribe();
       this.isDeleteSubmitted=true;

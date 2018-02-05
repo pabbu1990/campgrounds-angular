@@ -3,13 +3,13 @@
   padding-right: 30px;
 }
 .desc{
-  padding-left: 15px;
-  padding-bottom: 15px;
+  /*padding-left: 15px;*/
+  padding-bottom: 20px;
 
 }
 .campName {
-  margin-left: 10px;
-  padding-bottom: 50px;
+  /*margin-left: 5px;*/
+  margin-bottom: 50px;
 }
 
 #colorRed{
@@ -17,9 +17,6 @@
 }
 #btnDude {
   padding: 20px 20px;
-}
-#campImage {
-  padding: 10px 10px;
 }
 
 #backToCampBtn {
@@ -44,4 +41,8 @@
 
 a {
   cursor: pointer;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
 }

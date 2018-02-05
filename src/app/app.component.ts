@@ -8,15 +8,15 @@ import {ServerService} from "./campgrounds/server.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-begin: boolean;
 
+  constructor(public server: ServerService){}
+  localToken: any = this.server.token;
+  ngOnInit(
 
-  ngOnInit() {
-    this.begin = false;
+  ) {
 }
 
-  onBegin()
-  {
-    this.begin=true;
-  }
+onLogout(){
+  this.server.logout();
+}
 }

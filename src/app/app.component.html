@@ -1,59 +1,24 @@
-
-<nav class="navbar navbar-default" *ngIf="begin">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a class="navbar-brand" routerLink="/campgrounds">YelpCamp</a>
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <!--<% if(!currentUser){%>-->
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">SignUp</a></li>
-        <!--<li><a href="/campgrounds"><%= currentUser.username.toUpperCase()%></a></li>-->
-        <li><a href="/logout">Logout</a></li>
+        <li *ngIf="server.token==null || server.token==undefined"><a routerLink="/login">Login</a></li>
+        <li *ngIf="server.token==null || server.token==undefined"><a routerLink="/signup">SignUp</a></li>
+        <li *ngIf="server.token!=null && server.token!=undefined"><a routerLink="/" (click)="onLogout()">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container" *ngIf="begin">
-  <ul class="nav nav-tabs">
-    <li role="presentation" routerLinkActive="active">
-      <a routerLink="campgrounds">Campgrounds</a>
-    </li>
-    <li role="presentation"
-        routerLinkActive="active">
-      <a routerLink="new">New/Edit</a>
-    </li>
-  </ul>
-</div>
-
-<div class="container">
-  <div class="row" *ngIf="!begin">
-    <div class="col-md-12">
-      <div id="landing-header">
-        <h1>Welcome to YelpCamp!</h1>
-        <a (click)="onBegin()" routerLink="/campgrounds" class="btn btn-lg btn-success">Go Camping</a>
-        <!--<button type="button" class="btn btn-primary" routerLink="/campgrounds">View All Campgrounds</button>-->
-      </div>
-      <ul class="slideshow">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
+<div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+
 
 
 

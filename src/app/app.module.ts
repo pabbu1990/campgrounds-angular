@@ -9,12 +9,21 @@ import { CampgroundsComponent } from './campgrounds/campgrounds.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { NewComponent } from './new/new.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { HeaderComponent } from './header/header.component';
+import { provideRoutes} from '@angular/router';
+import { BaseComponent } from './base/base.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CampgroundsComponent,
-    NewComponent
+    NewComponent,
+    LoginComponent,
+    SignupComponent,
+    HeaderComponent,
+    BaseComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +33,7 @@ import { NewComponent } from './new/new.component';
     RouterModule,
     AppRoutingModule
   ],
+  exports: [RouterModule],
   providers: [ServerService, CampgroundsComponent],
   bootstrap: [AppComponent]
 })

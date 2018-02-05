@@ -24,9 +24,13 @@ export class NewComponent implements OnInit {
     this.isNewSubmitted=false;
     this.isEditSubmitted=false;
     this.onEdit();
+    if(isNullOrUndefined(this.ser.token)){
+      this.router.navigate(['/login']);
+    }
   }
 
   onSubmitForm(va: NgForm) {
+    console.log(va);
     this.campGr = new Campground('1', va.value.username, va.value.image, va.value.description);
     this.ser.addCamp(this.campGr).subscribe();
     this.isNewSubmitted = true;
